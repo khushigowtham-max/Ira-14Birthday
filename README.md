@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -27,12 +28,10 @@ section {
     padding: 20px;
 }
 
-/* only first visible */
-#s1 {
+#lock {
     display: flex;
 }
 
-/* text */
 h1 {
     font-size: 3em;
     margin-bottom: 20px;
@@ -46,8 +45,8 @@ p {
 
 /* button */
 button {
-    margin-top: 30px;
-    padding: 15px 30px;
+    margin-top: 25px;
+    padding: 12px 25px;
     border-radius: 25px;
     border: none;
     background: white;
@@ -67,6 +66,18 @@ button:hover {
     margin-top: 20px;
 }
 
+/* hidden memory */
+.hidden {
+    display: none;
+}
+
+/* video */
+video {
+    width: 300px;
+    border-radius: 15px;
+    margin-top: 20px;
+}
+
 /* hearts */
 .heart {
     position: fixed;
@@ -79,10 +90,19 @@ button:hover {
     100% { transform: translateY(-10vh); opacity: 0; }
 }
 </style>
-
 </head>
 
 <body>
+
+<!-- PASSWORD SCREEN -->
+<section id="lock">
+    <h1>Enter something only we know</h1>
+    <input type="password" id="pass">
+    <button onclick="check()">Enter</button>
+</section>
+
+<!-- MAIN WEBSITE -->
+<div id="main" style="display:none;">
 
 <!-- SECTION 1 -->
 <section id="s1">
@@ -104,34 +124,44 @@ button:hover {
         You became the person I go to without thinking.
         The person I trust without explaining everything.
     </p>
-    <img src="photo1.jpg" class="photo">
+
+    <button onclick="reveal('m1')">Tap to reveal memory</button>
+    <img src="photo1.jpg" id="m1" class="photo hidden">
+
     <button onclick="next('s4')">Continue</button>
 </section>
 
-<!-- SECTION 4 -->
+<!-- SECTION 4 (VIDEO) -->
 <section id="s4">
     <p>
-        It is not just the big memories.
-        It is the random conversations that somehow mean the most.
+        This moment meant more than I ever said.
     </p>
-    <img src="photo2.jpg" class="photo">
+
+    <video controls>
+        <source src="video.mp4" type="video/mp4">
+    </video>
+
     <button onclick="next('s5')">Continue</button>
 </section>
 
 <!-- SECTION 5 -->
 <section id="s5">
     <p>
-        You are not just my best friend.
-        You are someone who stayed, understood, and made life better.
+        It is not just the big memories.
+        It is the random moments that somehow became everything.
     </p>
+
+    <button onclick="reveal('m2')">Tap to reveal memory</button>
+    <img src="photo2.jpg" id="m2" class="photo hidden">
+
     <button onclick="next('s6')">Continue</button>
 </section>
 
 <!-- SECTION 6 -->
 <section id="s6">
     <p>
-        Happy Birthday.
-        I hope this year gives you everything you deserve.
+        You are not just my best friend.
+        You are someone who stayed and made life better.
     </p>
     <button onclick="next('end')">Last</button>
 </section>
@@ -143,19 +173,33 @@ button:hover {
     </p>
 </section>
 
+</div>
+
 <!-- MUSIC -->
 <audio autoplay loop>
     <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-// navigation
+
+/* PASSWORD */
+function check() {
+    if (document.getElementById("pass").value === "Gauresh over Yogesh") {
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("main").style.display = "block";
+        document.getElementById("s1").style.display = "flex";
+    } else {
+        alert("Wrong password");
+    }
+}
+
+/* NAVIGATION */
 function next(id) {
-    document.querySelectorAll("section").forEach(s => s.style.display = "none");
+    document.querySelectorAll("#main section").forEach(s => s.style.display = "none");
     document.getElementById(id).style.display = "flex";
 }
 
-// typing effect
+/* TYPE EFFECT */
 const text = "Hey Ira";
 let i = 0;
 
@@ -168,7 +212,12 @@ function typeEffect() {
 }
 typeEffect();
 
-// hearts
+/* REVEAL MEMORY */
+function reveal(id) {
+    document.getElementById(id).style.display = "block";
+}
+
+/* HEARTS */
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
@@ -182,6 +231,7 @@ function createHeart() {
     }, 6000);
 }
 setInterval(createHeart, 400);
+
 </script>
 
 </body>
