@@ -16,17 +16,7 @@ body {
     color: white;
     text-align: center;
 }
-function check() {
-    if (document.getElementById("pass").value === "Gauresh") {
-        document.getElementById("lock").style.display = "none";
-        document.getElementById("main").style.display = "block";
-        document.getElementById("s1").style.display = "flex";
 
-        document.getElementById("Queen London Thumakda Full Song (audio)  Amit Trivedi  Kangana Ranaut, Raj Kumar Rao.mp3").play(); // plays music here
-    } else {
-        alert("Wrong password");
-    }
-}
 /* sections */
 section {
     height: 100vh;
@@ -35,10 +25,18 @@ section {
     align-items: center;
     flex-direction: column;
     padding: 20px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+section.active {
+    display: flex;
+    opacity: 1;
 }
 
 #lock {
     display: flex;
+    opacity: 1;
 }
 
 h1 {
@@ -73,10 +71,6 @@ button:hover {
     width: 250px;
     border-radius: 15px;
     margin-top: 20px;
-}
-
-/* hidden memory */
-.hidden {
     display: none;
 }
 
@@ -99,58 +93,51 @@ video {
     100% { transform: translateY(-10vh); opacity: 0; }
 }
 </style>
-
 </head>
 
 <body>
 
-<!-- PASSWORD SCREEN -->
-<section id="lock">
+<!-- PASSWORD -->
+<section id="lock" class="active">
     <h1>Enter something only we know</h1>
-    <input type="password" id="pass">
-    <p style="margin-top:10px; font-size:0.9em; opacity:0.7;">
-Hint: Who would you choose over Yogesh 
-</p>
+    <input type="Gauresh" id="pass">
+    <p style="margin-top:10px; opacity:0.7;">
+        Hint: Who would you choose over Yogesh
+    </p>
     <button onclick="check()">Enter</button>
 </section>
-<button onclick="playMusic()">Play music</button>
 
-<audio id="music">
-    <source src="Queen London Thumakda Full Song (audio)  Amit Trivedi  Kangana Ranaut, Raj Kumar Rao.mp3" type="audio/mpeg">
-</audio>
-<!-- MAIN WEBSITE -->
-<div id="main" style="display:none;">
+<!-- MAIN -->
+<div id="main">
 
-<!-- SECTION 1 -->
 <section id="s1">
     <h1 id="typing"></h1>
     <button onclick="next('s2')">Continue</button>
 </section>
 
-<!-- SECTION 2 -->
 <section id="s2">
     <p>
         I do not think I say this enough, but you changed my life in a way I never expected.
     </p>
-      <button onclick="reveal('m1')">Tap to reveal memory</button>
-    <img src="Ira3.jpg" id="m1" class="photo hidden">
+
+    <button onclick="reveal('m1')">Tap to reveal memory</button>
+    <img src="Ira3.jpg" id="m1" class="photo">
+
     <button onclick="next('s3')">Continue</button>
 </section>
 
-<!-- SECTION 3 -->
 <section id="s3">
     <p>
         You became the person I go to without thinking.
         The person I trust without explaining everything.
     </p>
 
-    <button onclick="reveal('m1')">Tap to reveal memory</button>
-    <img src="Ira1.jpg" id="m1" class="photo hidden">
+    <button onclick="reveal('m2')">Tap to reveal memory</button>
+    <img src="Ira1.jpg" id="m2" class="photo">
 
     <button onclick="next('s4')">Continue</button>
 </section>
 
-<!-- SECTION 4 (VIDEO) -->
 <section id="s4">
     <p>
         These moments meant more than I ever said.
@@ -163,20 +150,18 @@ Hint: Who would you choose over Yogesh
     <button onclick="next('s5')">Continue</button>
 </section>
 
-<!-- SECTION 5 -->
 <section id="s5">
     <p>
         It is not just the big memories.
         It is the random moments that somehow became everything.
     </p>
 
-    <button onclick="reveal('m2')">Tap to reveal memory</button>
-    <img src="Ira2.jpg" id="m2" class="photo hidden">
+    <button onclick="reveal('m3')">Tap to reveal memory</button>
+    <img src="Ira2.jpg" id="m3" class="photo">
 
     <button onclick="next('s6')">Continue</button>
 </section>
 
-<!-- SECTION 6 -->
 <section id="s6">
     <p>
         You are not just my best friend.
@@ -185,7 +170,6 @@ Hint: Who would you choose over Yogesh
     <button onclick="next('end')">Last</button>
 </section>
 
-<!-- FINAL -->
 <section id="end">
     <p>
         If I had to choose again, I would still choose you.
@@ -195,8 +179,8 @@ Hint: Who would you choose over Yogesh
 </div>
 
 <!-- MUSIC -->
-<audio autoplay loop>
-    <source src="song.mp3" type="audio/mpeg">
+<audio id="music">
+    <source src="London Thumakda .mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -204,18 +188,24 @@ Hint: Who would you choose over Yogesh
 /* PASSWORD */
 function check() {
     if (document.getElementById("pass").value === "Gauresh") {
-        document.getElementById("lock").style.display = "none";
-        document.getElementById("main").style.display = "block";
-        document.getElementById("s1").style.display = "flex";
+        document.getElementById("lock").classList.remove("active");
+        document.getElementById("s1").classList.add("active");
+
+        document.getElementById("music").play();
     } else {
         alert("Wrong password");
     }
 }
 
-/* NAVIGATION */
+/* NAVIGATION WITH FADE */
 function next(id) {
-    document.querySelectorAll("#main section").forEach(s => s.style.display = "none");
-    document.getElementById(id).style.display = "flex";
+    document.querySelectorAll("#main section").forEach(s => {
+        s.classList.remove("active");
+    });
+
+    setTimeout(() => {
+        document.getElementById(id).classList.add("active");
+    }, 200);
 }
 
 /* TYPE EFFECT */
@@ -231,7 +221,7 @@ function typeEffect() {
 }
 typeEffect();
 
-/* REVEAL MEMORY */
+/* REVEAL */
 function reveal(id) {
     document.getElementById(id).style.display = "block";
 }
@@ -245,9 +235,7 @@ function createHeart() {
     heart.style.fontSize = Math.random() * 20 + 10 + "px";
     document.body.appendChild(heart);
 
-    setTimeout(() => {
-        heart.remove();
-    }, 6000);
+    setTimeout(() => heart.remove(), 6000);
 }
 setInterval(createHeart, 400);
 
