@@ -142,7 +142,7 @@ Hint: Who would you choose over Yogesh
 <!-- SECTION 4 (VIDEO) -->
 <section id="s4">
     <p>
-        This moment meant more than I ever said.
+        These moments meant more than I ever said.
     </p>
 
     <video controls>
