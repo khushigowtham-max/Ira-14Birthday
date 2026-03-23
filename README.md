@@ -167,6 +167,8 @@ video {
         You are not just my best friend.
         You are someone who stayed and made life better.
     </p>
+      <button onclick="reveal('m2')">Tap to reveal memory</button>
+    <img src="Ira5.jpg" id="m2" class="photo">
     <button onclick="next('end')">Last</button>
 </section>
 
