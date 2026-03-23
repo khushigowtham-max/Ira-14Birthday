@@ -120,60 +120,55 @@ window.addEventListener('scroll', () => {
 
 <body>
 
-<section class="one">
+<section id="s1">
     <h1 id="typing"></h1>
+    <button onclick="next('s2')">Continue</button>
 </section>
 
-<section class="two">
+<section id="s2" style="display:none;">
     <p>
-        I dont think I say this enough, but you changed my life in a way I never expected.
-        Not loudly, not suddenly, but in small moments that slowly became everything.
+        I do not think I say this enough, but you changed my life in a way I never expected.
     </p>
-     <img src="Ira2.jpg" class="photo">
+    <button onclick="next('s3')">Continue</button>
 </section>
 
-<section class="three">
+<section id="s3" style="display:none;">
     <p>
         You became the person I go to without thinking.
         The person I trust without explaining everything.
-        The one who makes even normal days feel important.
-           <img src="Ira3.jpg" class="photo">
     </p>
+    <button onclick="next('s4')">Continue</button>
 </section>
 
-<section class="four">
+<section id="s4" style="display:none;">
     <p>
         It is not just the big memories.
-        It is the random conversations, the silence, the stupid moments that somehow mean the most.
+        It is the random conversations that somehow mean the most.
     </p>
-      <img src="Ira4.jpg" class="photo">
+    <button onclick="next('s5')">Continue</button>
 </section>
 
-<section class="five">
+<section id="s5" style="display:none;">
     <p>
         You are not just my best friend.
-        You are someone who stayed, understood, and made life better just by being in it.
+        You are someone who stayed, understood, and made life better.
     </p>
-    <img src="Ira1.jpg" class="photo">
-   
- 
+    <button onclick="next('s6')">Continue</button>
 </section>
 
-<section class="two">
+<section id="s6" style="display:none;">
     <p>
         Happy Birthday.
         I hope this year gives you everything you deserve.
-        And I hope you never forget how much you matter.
     </p>
-
-    <button onclick="reveal()">Click when you are ready</button>
-
-    <p id="final">
-        Out of everyone in the world, I am really glad it was you.
-        And I would choose you again without thinking.
-    </p>
+    <button onclick="next('end')">Last</button>
 </section>
 
+<section id="end" style="display:none;">
+    <p>
+        If I had to choose again, I would still choose you.
+    </p>
+</section>
 <audio autoplay loop>
 <source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
 </audio>
