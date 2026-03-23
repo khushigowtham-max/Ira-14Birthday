@@ -199,7 +199,7 @@ function check() {
         document.getElementById("s1").classList.add("active");
 
        let music = document.getElementById("music");
-music.currentTime = 35; 
+music.currentTime = 47; 
 music.play();
 
     } else {
