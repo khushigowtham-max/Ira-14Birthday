@@ -1,7 +1,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>For My Best Friend 💙</title>
+<title>For My Best Friend </title>
 <style>
     body {
         margin: 0;
