@@ -125,7 +125,7 @@ video {
     </p>
 
     <button onclick="reveal('m1')">Tap to reveal memory</button>
-    <img src="photo1.jpg" id="m1" class="photo hidden">
+    <img src="Ira1.jpg" id="m1" class="photo hidden">
 
     <button onclick="next('s4')">Continue</button>
 </section>
@@ -151,7 +151,7 @@ video {
     </p>
 
     <button onclick="reveal('m2')">Tap to reveal memory</button>
-    <img src="photo2.jpg" id="m2" class="photo hidden">
+    <img src="Ira2.jpg" id="m2" class="photo hidden">
 
     <button onclick="next('s6')">Continue</button>
 </section>
