@@ -167,7 +167,7 @@ video {
         You are not just my best friend.
         You are someone who stayed and made life better.
     </p>
-      <button onclick="reveal('m2')">Tap to reveal memory</button>
+      <button onclick="reveal('m2')">Tap to reveal</button>
     <img src="Ira5.jpg" id="m2" class="photo">
     <button onclick="next('end')">Last</button>
 </section>
@@ -175,6 +175,9 @@ video {
 <section id="end">
     <p>
         If I had to choose again, I would still choose you.
+         <button onclick="reveal('m3')">Tap to reveal </button>
+    <img src="Ira2.jpg" id="m3" class="photo">
+
     </p>
 </section>
 
