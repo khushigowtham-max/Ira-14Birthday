@@ -176,7 +176,7 @@ video {
     <p>
         If I had to choose again, I would still choose you.
          <button onclick="reveal('m3')">Tap to reveal </button>
-    <img src="Ira2.jpg" id="m3" class="photo">
+    <img src="Ira6.jpg" id="m3" class="photo">
 
     </p>
 </section>
