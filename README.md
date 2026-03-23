@@ -87,6 +87,16 @@ button:hover {
     opacity: 0;
     transform: translateY(40px);
     transition: 1.5s;
+        const faders = document.querySelectorAll('.fade');
+
+window.addEventListener('scroll', () => {
+    faders.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 100) {
+            el.classList.add('show');
+        }
+    });
+});
 }
 
 .show {
