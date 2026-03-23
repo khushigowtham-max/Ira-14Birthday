@@ -14,7 +14,7 @@ body {
 }
 
 .section {
-    padding: 60px 20px;
+    padding: 70px 20px;
 }
 
 h1 {
@@ -30,21 +30,12 @@ p {
     width: 70%;
     margin: auto;
     margin-top: 15px;
-    font-size: 1.1em;
-    line-height: 1.6;
-}
-
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    margin: 10px 0;
+    font-size: 1.15em;
+    line-height: 1.8;
 }
 
 button {
-    margin-top: 30px;
+    margin-top: 40px;
     padding: 15px 30px;
     font-size: 1em;
     border: none;
@@ -63,31 +54,28 @@ button:hover {
 
 .hidden {
     display: none;
-    margin-top: 20px;
-    font-size: 1.4em;
+    margin-top: 30px;
+    font-size: 1.5em;
 }
 
-img {
-    width: 200px;
-    margin: 10px;
-    border-radius: 15px;
+.fade {
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
 .heart {
     position: absolute;
     color: pink;
-    animation: floatUp 5s linear infinite;
+    animation: floatUp 6s linear infinite;
 }
 
 @keyframes floatUp {
-    0% {
-        transform: translateY(100vh);
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-10vh);
-        opacity: 0;
-    }
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
 }
 </style>
 
@@ -97,74 +85,65 @@ img {
 
 <div class="section">
     <h1 id="typing"></h1>
-    <p>
-        From random laughs to deep talks you have always been someone I can count on.
-        Life feels lighter and better with you in it.
+    <p class="fade">
+        I do not think I say this enough, but you changed my life in a way I never expected.
+        Not in a loud dramatic way, but in quiet moments that slowly became everything.
     </p>
 </div>
 
 <div class="section">
-    <h2>Our Story</h2>
-    <p>
-        It started with a simple moment and turned into something I will always value.
-        We created memories that are impossible to replace.
-        The way we understand each other without explaining everything makes this friendship special.
+    <h2 class="fade">There is something about you</h2>
+    <p class="fade">
+        You walked into my life like it was nothing, and somehow stayed in a way that means everything.
+        You became the person I go to without thinking, the person I trust without doubt,
+        and the person who makes even the worst days feel lighter.
     </p>
 </div>
 
 <div class="section">
-    <h2>Things Only We Understand</h2>
-    <ul>
-        <li>Those random conversations that make no sense to anyone else</li>
-        <li>The times we could not stop laughing</li>
-        <li>The way one word is enough for us to understand everything</li>
-    </ul>
-</div>
-
-<div class="section">
-    <h2>Why You Matter</h2>
-    <p>
-        You are someone who listens, cares, and stays.
-        That is rare and it means more than I can explain.
-        Having you in my life is something I will always be grateful for.
+    <h2 class="fade">The little things</h2>
+    <p class="fade">
+        It is not just the big memories.
+        It is the random conversations, the moments where nothing important is happening,
+        and yet I would not trade them for anything.
+        Those are the moments that made this friendship real.
     </p>
 </div>
 
 <div class="section">
-    <h2>Birthday Message</h2>
-    <p>
-        I hope this year brings you happiness, success, and everything you have been wishing for.
-        You deserve good things and more.
-        No matter what happens I will always be here.
+    <h2 class="fade">What you mean to me</h2>
+    <p class="fade">
+        You are not just my best friend.
+        You are someone who understands me in a way that is hard to explain.
+        Someone who stayed when it mattered.
+        Someone who made me feel like I am not alone.
     </p>
 </div>
 
 <div class="section">
-    <h2>Memories</h2>
-    <img src="photo1.jpg">
-    <img src="photo2.jpg">
-    <img src="photo3.jpg">
+    <h2 class="fade">I want you to know this</h2>
+    <p class="fade">
+        No matter where life goes, no matter how much changes,
+        you will always be important to me.
+        Not just for what we have now, but for everything we have already been through.
+    </p>
 </div>
 
 <div class="section">
-    <h2>Timeline</h2>
-    <ul>
-        <li>When we first met</li>
-        <li>Our first real conversation</li>
-        <li>Moments that made this friendship strong</li>
-    </ul>
+    <h2 class="fade">Happy Birthday</h2>
+    <p class="fade">
+        I hope this year gives you the happiness you give to everyone else.
+        I hope you find everything you are looking for.
+        And I hope you never forget how much you matter.
+    </p>
 </div>
 
 <div class="section">
-    <button onclick="showMessage()">Click for a final message</button>
+    <button onclick="showFinal()">Click this when you are ready</button>
     <p id="finalMessage" class="hidden">
-        No matter how much time passes you will always be important to me.
+        Out of all the people in the world, I am really glad it was you.
     </p>
 </div>
-
-<audio autoplay loop>
-  <source src="https://www.bensound.com/bensound-music/bensound-sunny.mp3" type="audio/mp3">
-</audio>
 
 <script>
 const text = "Hey Ira";
@@ -174,12 +153,12 @@ function typeEffect() {
     if (i < text.length) {
         document.getElementById("typing").innerHTML += text.charAt(i);
         i++;
-        setTimeout(typeEffect, 70);
+        setTimeout(typeEffect, 80);
     }
 }
 typeEffect();
 
-function showMessage() {
+function showFinal() {
     document.getElementById("finalMessage").style.display = "block";
 }
 
@@ -193,10 +172,10 @@ function createHeart() {
 
     setTimeout(() => {
         heart.remove();
-    }, 5000);
+    }, 6000);
 }
 
-setInterval(createHeart, 300);
+setInterval(createHeart, 400);
 </script>
 
 </body>
