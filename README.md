@@ -19,13 +19,15 @@ body {
 
 /* sections */
 section {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    padding: 40px;
-    text-align: center;
+ .one {
+    background: url("bg1.jpg") center/cover no-repeat;
+}
+.two {
+    background: url("bg2.jpg") center/cover no-repeat;
+}
+.three {
+    background: url("bg3.jpg") center/cover no-repeat;
+}
 }
 
 /* backgrounds */
