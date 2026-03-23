@@ -11,25 +11,26 @@
 }
 
 body {
+    margin: 0;
     font-family: Arial, sans-serif;
-    scroll-behavior: smooth;
     background: black;
     color: white;
+    text-align: center;
 }
 
-/* sections */
 section {
- .one {
-    background: url("bg1.jpg") center/cover no-repeat;
-}
-.two {
-    background: url("bg2.jpg") center/cover no-repeat;
-}
-.three {
-    background: url("bg3.jpg") center/cover no-repeat;
-}
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 }
 
+p {
+    max-width: 600px;
+    font-size: 1.3em;
+    line-height: 1.8;
+}
 /* backgrounds */
 .one { background: linear-gradient(#1E90FF, #000); }
 .two { background: #000; }
