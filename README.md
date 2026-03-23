@@ -198,7 +198,9 @@ function check() {
         document.getElementById("main").style.display = "block";
         document.getElementById("s1").classList.add("active");
 
-        document.getElementById("music").play();
+       let music = document.getElementById("music");
+music.currentTime = 35; 
+music.play();
 
     } else {
         alert("Wrong password");
