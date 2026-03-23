@@ -114,6 +114,12 @@ window.addEventListener('scroll', () => {
     opacity: 1;
     transform: translateY(0);
 }
+    <script>
+function next(id) {
+    document.querySelectorAll("section").forEach(s => s.style.display = "none");
+    document.getElementById(id).style.display = "flex";
+}
+</script>
 </style>
 
 </head>
