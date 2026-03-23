@@ -151,8 +151,11 @@ window.addEventListener('scroll', () => {
         You are not just my best friend.
         You are someone who stayed, understood, and made life better just by being in it.
     </p>
+    <img src="Ira1.jpg" class="photo">
+    <img src="Ira2.jpg" class="photo">
+    <img src="Ira3.jpg" class="photo">
 </section>
-
+<img src="photo1.jpg" class="photo">
 <section class="two">
     <p>
         Happy Birthday.
