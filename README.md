@@ -97,6 +97,9 @@ video {
 <section id="lock">
     <h1>Enter something only we know</h1>
     <input type="password" id="pass">
+    <p style="margin-top:10px; font-size:0.9em; opacity:0.7;">
+Hint: Who would you choose over Yogesh 
+</p>
     <button onclick="check()">Enter</button>
 </section>
 
@@ -183,7 +186,7 @@ video {
 
 /* PASSWORD */
 function check() {
-    if (document.getElementById("pass").value === "Gauresh over Yogesh") {
+    if (document.getElementById("pass").value === "Gauresh") {
         document.getElementById("lock").style.display = "none";
         document.getElementById("main").style.display = "block";
         document.getElementById("s1").style.display = "flex";
