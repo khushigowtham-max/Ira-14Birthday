@@ -4,71 +4,74 @@
 <title>For Ira</title>
 
 <style>
-body {
+* {
     margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #89CFF0, #1E90FF);
+    scroll-behavior: smooth;
+    background: black;
     color: white;
+}
+
+/* sections */
+section {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 40px;
     text-align: center;
-    overflow-x: hidden;
 }
 
-.section {
-    padding: 70px 20px;
-}
+/* backgrounds */
+.one { background: linear-gradient(#1E90FF, #000); }
+.two { background: #000; }
+.three { background: #111; }
+.four { background: #000; }
+.five { background: #111; }
 
+/* text */
 h1 {
     font-size: 3em;
-}
-
-h2 {
-    margin-top: 40px;
-    font-size: 2em;
+    margin-bottom: 20px;
 }
 
 p {
-    width: 70%;
-    margin: auto;
-    margin-top: 15px;
-    font-size: 1.15em;
+    max-width: 700px;
     line-height: 1.8;
+    font-size: 1.2em;
 }
 
+/* button */
 button {
-    margin-top: 40px;
+    margin-top: 30px;
     padding: 15px 30px;
-    font-size: 1em;
-    border: none;
     border-radius: 25px;
-    background-color: white;
-    color: #1E90FF;
+    border: none;
+    background: white;
+    color: black;
     cursor: pointer;
     transition: 0.3s;
-    box-shadow: 0 0 10px white, 0 0 20px #1E90FF;
 }
 
 button:hover {
     transform: scale(1.1);
-    background-color: #ddd;
 }
 
-.hidden {
-    display: none;
-    margin-top: 30px;
-    font-size: 1.5em;
-}
-
-.fade {
+/* hidden final */
+#final {
     opacity: 0;
-    animation: fadeIn 3s forwards;
+    transition: 2s;
 }
 
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-
+/* hearts */
 .heart {
-    position: absolute;
+    position: fixed;
     color: pink;
     animation: floatUp 6s linear infinite;
 }
@@ -83,67 +86,57 @@ button:hover {
 
 <body>
 
-<div class="section">
+<section class="one">
     <h1 id="typing"></h1>
-    <p class="fade">
+</section>
+
+<section class="two">
+    <p>
         I do not think I say this enough, but you changed my life in a way I never expected.
-        Not in a loud dramatic way, but in quiet moments that slowly became everything.
+        Not loudly, not suddenly, but in small moments that slowly became everything.
     </p>
-</div>
+</section>
 
-<div class="section">
-    <h2 class="fade">There is something about you</h2>
-    <p class="fade">
-        You walked into my life like it was nothing, and somehow stayed in a way that means everything.
-        You became the person I go to without thinking, the person I trust without doubt,
-        and the person who makes even the worst days feel lighter.
+<section class="three">
+    <p>
+        You became the person I go to without thinking.
+        The person I trust without explaining everything.
+        The one who makes even normal days feel important.
     </p>
-</div>
+</section>
 
-<div class="section">
-    <h2 class="fade">The little things</h2>
-    <p class="fade">
+<section class="four">
+    <p>
         It is not just the big memories.
-        It is the random conversations, the moments where nothing important is happening,
-        and yet I would not trade them for anything.
-        Those are the moments that made this friendship real.
+        It is the random conversations, the silence, the stupid moments that somehow mean the most.
     </p>
-</div>
+</section>
 
-<div class="section">
-    <h2 class="fade">What you mean to me</h2>
-    <p class="fade">
+<section class="five">
+    <p>
         You are not just my best friend.
-        You are someone who understands me in a way that is hard to explain.
-        Someone who stayed when it mattered.
-        Someone who made me feel like I am not alone.
+        You are someone who stayed, understood, and made life better just by being in it.
     </p>
-</div>
+</section>
 
-<div class="section">
-    <h2 class="fade">I want you to know this</h2>
-    <p class="fade">
-        No matter where life goes, no matter how much changes,
-        you will always be important to me.
-        Not just for what we have now, but for everything we have already been through.
-    </p>
-</div>
-
-<div class="section">
-    <h2 class="fade">Happy Birthday</h2>
-    <p class="fade">
-        I hope this year gives you the happiness you give to everyone else.
-        I hope you find everything you are looking for.
+<section class="two">
+    <p>
+        Happy Birthday.
+        I hope this year gives you everything you deserve.
         And I hope you never forget how much you matter.
     </p>
-</div>
 
-<div class="section">
-    <button onclick="showFinal()">Click this when you are ready</button>
-    <p id="finalMessage" class="hidden">
-        Out of all the people in the world, I am really glad it was you.
+    <button onclick="reveal()">Click when you are ready</button>
+
+    <p id="final">
+        Out of everyone in the world, I am really glad it was you.
+        And I would choose you again without thinking.
     </p>
-</div>
+</section>
+
+<audio autoplay loop>
+<source src="https://www.bensound.com/bensound-music/bensound-slowmotion.mp3">
+</audio>
 
 <script>
 const text = "Hey Ira";
@@ -158,10 +151,11 @@ function typeEffect() {
 }
 typeEffect();
 
-function showFinal() {
-    document.getElementById("finalMessage").style.display = "block";
+function reveal() {
+    document.getElementById("final").style.opacity = 1;
 }
 
+/* hearts */
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
@@ -174,7 +168,6 @@ function createHeart() {
         heart.remove();
     }, 6000);
 }
-
 setInterval(createHeart, 400);
 </script>
 
