@@ -176,7 +176,7 @@ function next(id) {
 
 <section id="end" style="display:none;">
     <p>
-        If I had to choose again, I will still choose you.
+        If I had to choose again, I would still choose you.
     </p>
 </section>
 <audio autoplay loop>
