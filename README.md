@@ -81,7 +81,7 @@
 <body>
 
 <div class="container">
-    <h1>Hey Bestie 💙</h1>
+    <h1>Hey Bestie </h1>
     <p>
         You are literally one of the best things in my life.  
         Thank you for always being there, for the laughs, the chaos,  
