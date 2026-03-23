@@ -44,7 +44,7 @@ p {
     line-height: 1.8;
 }
 /* backgrounds */
-background: url("bg1.jpg") center/cover no-repeat;
+.one {background: url("bg1.jpg") center/cover no-repeat;}
 .two { background: #000; }
 .three { background: #111; }
 .four { background: #000; }
