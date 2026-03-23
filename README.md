@@ -28,7 +28,16 @@ section {
     flex-direction: column;
 }
     
+.photo {
+    width: 250px;
+    border-radius: 15px;
+    margin-top: 20px;
+    transition: 0.4s;
+}
 
+.photo:hover {
+    transform: scale(1.05);
+}
 p {
     max-width: 600px;
     font-size: 1.3em;
