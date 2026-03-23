@@ -129,6 +129,7 @@ window.addEventListener('scroll', () => {
         I dont think I say this enough, but you changed my life in a way I never expected.
         Not loudly, not suddenly, but in small moments that slowly became everything.
     </p>
+     <img src="Ira2.jpg" class="photo">
 </section>
 
 <section class="three">
@@ -136,6 +137,7 @@ window.addEventListener('scroll', () => {
         You became the person I go to without thinking.
         The person I trust without explaining everything.
         The one who makes even normal days feel important.
+           <img src="Ira3.jpg" class="photo">
     </p>
 </section>
 
@@ -152,8 +154,8 @@ window.addEventListener('scroll', () => {
         You are someone who stayed, understood, and made life better just by being in it.
     </p>
     <img src="Ira1.jpg" class="photo">
-    <img src="Ira2.jpg" class="photo">
-    <img src="Ira3.jpg" class="photo">
+   
+ 
 </section>
 
 <section class="two">
