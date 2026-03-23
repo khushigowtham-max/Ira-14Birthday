@@ -126,7 +126,7 @@ window.addEventListener('scroll', () => {
 
 <section class="two">
     <p>
-        I do not think I say this enough, but you changed my life in a way I never expected.
+        I dont think I say this enough, but you changed my life in a way I never expected.
         Not loudly, not suddenly, but in small moments that slowly became everything.
     </p>
 </section>
