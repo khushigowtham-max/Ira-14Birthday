@@ -4,7 +4,9 @@
 <title>For Ira</title>
 
 <style>
-* {
+<section class="fade">
+    
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -25,6 +27,7 @@ section {
     align-items: center;
     flex-direction: column;
 }
+    
 
 p {
     max-width: 600px;
@@ -43,7 +46,6 @@ h1 {
     font-size: 3em;
     margin-bottom: 20px;
 }
-
 p {
     max-width: 700px;
     line-height: 1.8;
