@@ -100,7 +100,7 @@ video {
 <!-- PASSWORD -->
 <section id="lock" class="active">
     <h1>Enter something only we know</h1>
-    <input type="Passwors" id="pass">
+    <input type="password" id="pass">
     <p style="margin-top:10px; opacity:0.7;">
         Hint: Who is better for Akanksha over Yogesh?
     </p>
@@ -186,20 +186,13 @@ video {
 <script>
 
 /* PASSWORD */
-
 function check() {
     if (document.getElementById("pass").value === "Gauresh") {
 
-        // hide password screen
         document.getElementById("lock").style.display = "none";
-
-        // show main container
         document.getElementById("main").style.display = "block";
-
-        // show first section
         document.getElementById("s1").classList.add("active");
 
-        // play music
         document.getElementById("music").play();
 
     } else {
@@ -207,17 +200,13 @@ function check() {
     }
 }
 
-}
-
-/* NAVIGATION WITH FADE */
+/* NAVIGATION */
 function next(id) {
     document.querySelectorAll("#main section").forEach(s => {
         s.classList.remove("active");
     });
 
-    setTimeout(() => {
-        document.getElementById(id).classList.add("active");
-    }, 200);
+    document.getElementById(id).classList.add("active");
 }
 
 /* TYPE EFFECT */
