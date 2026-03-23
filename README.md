@@ -44,7 +44,7 @@ p {
     line-height: 1.8;
 }
 /* backgrounds */
-.one { background: linear-gradient(#1E90FF, #000); }
+background: url("bg1.jpg") center/cover no-repeat;
 .two { background: #000; }
 .three { background: #111; }
 .four { background: #000; }
