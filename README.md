@@ -22,12 +22,16 @@ body {
 
 section {
     height: 100vh;
-    display: flex;
+    display: none; /* hide all by default */
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    text-align: center;
 }
-    
+
+#s1 {
+    display: flex; /* ONLY first section visible */
+}
 .photo {
     width: 250px;
     border-radius: 15px;
@@ -114,7 +118,7 @@ window.addEventListener('scroll', () => {
     opacity: 1;
     transform: translateY(0);
 }
-    <script>
+<script>
 function next(id) {
     document.querySelectorAll("section").forEach(s => s.style.display = "none");
     document.getElementById(id).style.display = "flex";
