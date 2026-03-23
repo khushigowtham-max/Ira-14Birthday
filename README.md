@@ -17,12 +17,12 @@ body {
     text-align: center;
 }
 function check() {
-    if (document.getElementById("pass").value === "yoursecret") {
+    if (document.getElementById("pass").value === "Gauresh") {
         document.getElementById("lock").style.display = "none";
         document.getElementById("main").style.display = "block";
         document.getElementById("s1").style.display = "flex";
 
-        document.getElementById("music").play(); // plays music here
+        document.getElementById("Queen London Thumakda Full Song (audio)  Amit Trivedi  Kangana Ranaut, Raj Kumar Rao.mp3").play(); // plays music here
     } else {
         alert("Wrong password");
     }
