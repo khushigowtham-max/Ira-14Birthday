@@ -102,7 +102,11 @@ Hint: Who would you choose over Yogesh
 </p>
     <button onclick="check()">Enter</button>
 </section>
+<button onclick="playMusic()">Play music</button>
 
+<audio id="music">
+    <source src="Queen London Thumakda Full Song (audio)  Amit Trivedi  Kangana Ranaut, Raj Kumar Rao.mp3" type="audio/mpeg">
+</audio>
 <!-- MAIN WEBSITE -->
 <div id="main" style="display:none;">
 
