@@ -83,6 +83,16 @@ button:hover {
     0% { transform: translateY(100vh); opacity: 1; }
     100% { transform: translateY(-10vh); opacity: 0; }
 }
+    .fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 1.5s;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 </style>
 
 </head>
