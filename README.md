@@ -102,7 +102,7 @@ video {
     <h1>Enter something only we know</h1>
     <input type="Gauresh" id="pass">
     <p style="margin-top:10px; opacity:0.7;">
-        Hint: Who would you choose over Yogesh
+        Hint: Who would you choose over Yogesh for Akanksha?
     </p>
     <button onclick="check()">Enter</button>
 </section>
