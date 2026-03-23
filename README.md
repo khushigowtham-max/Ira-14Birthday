@@ -117,6 +117,8 @@ Hint: Who would you choose over Yogesh
     <p>
         I do not think I say this enough, but you changed my life in a way I never expected.
     </p>
+      <button onclick="reveal('m1')">Tap to reveal memory</button>
+    <img src="Ira3.jpg" id="m1" class="photo hidden">
     <button onclick="next('s3')">Continue</button>
 </section>
 
