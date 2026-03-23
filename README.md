@@ -4,65 +4,44 @@
 <title>For Ira</title>
 
 <style>
-<section class="fade">
-    
-    * {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    margin: 0;
     font-family: Arial, sans-serif;
     background: black;
     color: white;
     text-align: center;
 }
 
+/* sections */
 section {
     height: 100vh;
-    display: none; /* hide all by default */
+    display: none;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-    text-align: center;
+    padding: 20px;
 }
 
+/* only first visible */
 #s1 {
-    display: flex; /* ONLY first section visible */
+    display: flex;
 }
-.photo {
-    width: 250px;
-    border-radius: 15px;
-    margin-top: 20px;
-    transition: 0.4s;
-}
-
-.photo:hover {
-    transform: scale(1.05);
-}
-p {
-    max-width: 600px;
-    font-size: 1.3em;
-    line-height: 1.8;
-}
-/* backgrounds */
-.one {background: url("bg2.jpg") center/cover no-repeat;}
-.two { background: #000; }
-.three { background: #111; }
-.four { background: #000; }
-.five { background: #111; }
 
 /* text */
 h1 {
     font-size: 3em;
     margin-bottom: 20px;
 }
+
 p {
-    max-width: 700px;
+    max-width: 600px;
+    font-size: 1.3em;
     line-height: 1.8;
-    font-size: 1.2em;
 }
 
 /* button */
@@ -81,10 +60,11 @@ button:hover {
     transform: scale(1.1);
 }
 
-/* hidden final */
-#final {
-    opacity: 0;
-    transition: 2s;
+/* images */
+.photo {
+    width: 250px;
+    border-radius: 15px;
+    margin-top: 20px;
 }
 
 /* hearts */
@@ -98,67 +78,48 @@ button:hover {
     0% { transform: translateY(100vh); opacity: 1; }
     100% { transform: translateY(-10vh); opacity: 0; }
 }
-    .fade {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: 1.5s;
-        const faders = document.querySelectorAll('.fade');
-
-window.addEventListener('scroll', () => {
-    faders.forEach(el => {
-        const top = el.getBoundingClientRect().top;
-        if (top < window.innerHeight - 100) {
-            el.classList.add('show');
-        }
-    });
-});
-}
-
-.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-<script>
-function next(id) {
-    document.querySelectorAll("section").forEach(s => s.style.display = "none");
-    document.getElementById(id).style.display = "flex";
-}
-</script>
 </style>
 
 </head>
 
 <body>
 
+<!-- SECTION 1 -->
 <section id="s1">
     <h1 id="typing"></h1>
     <button onclick="next('s2')">Continue</button>
 </section>
 
-<section id="s2" style="display:none;">
+<!-- SECTION 2 -->
+<section id="s2">
     <p>
         I do not think I say this enough, but you changed my life in a way I never expected.
     </p>
     <button onclick="next('s3')">Continue</button>
 </section>
 
-<section id="s3" style="display:none;">
+<!-- SECTION 3 -->
+<section id="s3">
     <p>
         You became the person I go to without thinking.
         The person I trust without explaining everything.
     </p>
+    <img src="photo1.jpg" class="photo">
     <button onclick="next('s4')">Continue</button>
 </section>
 
-<section id="s4" style="display:none;">
+<!-- SECTION 4 -->
+<section id="s4">
     <p>
         It is not just the big memories.
         It is the random conversations that somehow mean the most.
     </p>
+    <img src="photo2.jpg" class="photo">
     <button onclick="next('s5')">Continue</button>
 </section>
 
-<section id="s5" style="display:none;">
+<!-- SECTION 5 -->
+<section id="s5">
     <p>
         You are not just my best friend.
         You are someone who stayed, understood, and made life better.
@@ -166,7 +127,8 @@ function next(id) {
     <button onclick="next('s6')">Continue</button>
 </section>
 
-<section id="s6" style="display:none;">
+<!-- SECTION 6 -->
+<section id="s6">
     <p>
         Happy Birthday.
         I hope this year gives you everything you deserve.
@@ -174,16 +136,26 @@ function next(id) {
     <button onclick="next('end')">Last</button>
 </section>
 
-<section id="end" style="display:none;">
+<!-- FINAL -->
+<section id="end">
     <p>
         If I had to choose again, I would still choose you.
     </p>
 </section>
+
+<!-- MUSIC -->
 <audio autoplay loop>
-<source "Queen London Thumakda Full Song (audio)  Amit Trivedi  Kangana Ranaut, Raj Kumar Rao">
+    <source src="song.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+// navigation
+function next(id) {
+    document.querySelectorAll("section").forEach(s => s.style.display = "none");
+    document.getElementById(id).style.display = "flex";
+}
+
+// typing effect
 const text = "Hey Ira";
 let i = 0;
 
@@ -196,11 +168,7 @@ function typeEffect() {
 }
 typeEffect();
 
-function reveal() {
-    document.getElementById("final").style.opacity = 1;
-}
-
-/* hearts */
+// hearts
 function createHeart() {
     const heart = document.createElement("div");
     heart.classList.add("heart");
