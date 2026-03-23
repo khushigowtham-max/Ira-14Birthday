@@ -155,7 +155,7 @@ window.addEventListener('scroll', () => {
     <img src="Ira2.jpg" class="photo">
     <img src="Ira3.jpg" class="photo">
 </section>
-<img src="photo1.jpg" class="photo">
+
 <section class="two">
     <p>
         Happy Birthday.
