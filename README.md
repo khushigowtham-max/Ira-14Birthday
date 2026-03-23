@@ -16,7 +16,17 @@ body {
     color: white;
     text-align: center;
 }
+function check() {
+    if (document.getElementById("pass").value === "yoursecret") {
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("main").style.display = "block";
+        document.getElementById("s1").style.display = "flex";
 
+        document.getElementById("music").play(); // plays music here
+    } else {
+        alert("Wrong password");
+    }
+}
 /* sections */
 section {
     height: 100vh;
@@ -89,6 +99,7 @@ video {
     100% { transform: translateY(-10vh); opacity: 0; }
 }
 </style>
+
 </head>
 
 <body>
