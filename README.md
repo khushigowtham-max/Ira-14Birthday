@@ -44,7 +44,7 @@ p {
     line-height: 1.8;
 }
 /* backgrounds */
-.one {background: url("bg1.jpg") center/cover no-repeat;}
+.one {background: url("bg2.jpg") center/cover no-repeat;}
 .two { background: #000; }
 .three { background: #111; }
 .four { background: #000; }
@@ -146,6 +146,7 @@ window.addEventListener('scroll', () => {
         It is not just the big memories.
         It is the random conversations, the silence, the stupid moments that somehow mean the most.
     </p>
+      <img src="Ira4.jpg" class="photo">
 </section>
 
 <section class="five">
