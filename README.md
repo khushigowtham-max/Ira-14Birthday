@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,19 +13,10 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: url("bg1.jpg") center/cover no-repeat fixed;
+    background: black;
     color: white;
     text-align: center;
-}
-    body::before {
-    content: "";
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.6);
-    top: 0;
-    left: 0;
-    z-index: -1;
+    overflow: hidden;
 }
 
 /* sections */
@@ -36,7 +28,8 @@ section {
     flex-direction: column;
     padding: 20px;
     opacity: 0;
-    transition: opacity 1s;
+    transition: 1s;
+    position: relative;
 }
 
 section.active {
@@ -49,9 +42,9 @@ section.active {
     opacity: 1;
 }
 
+/* text */
 h1 {
     font-size: 3em;
-    margin-bottom: 20px;
 }
 
 p {
@@ -62,18 +55,13 @@ p {
 
 /* button */
 button {
-    margin-top: 25px;
+    margin-top: 20px;
     padding: 12px 25px;
     border-radius: 25px;
     border: none;
     background: white;
     color: black;
     cursor: pointer;
-    transition: 0.3s;
-}
-
-button:hover {
-    transform: scale(1.1);
 }
 
 /* images */
@@ -91,26 +79,8 @@ video {
     margin-top: 20px;
 }
 
-/* hearts */
-.heart {
-    position: fixed;
-    color: pink;
-    animation: floatUp 6s linear infinite;
-}
-
-@keyframes floatUp {
-    0% { transform: translateY(100vh); opacity: 1; }
-    100% { transform: translateY(-10vh); opacity: 0; }
-}
-    #lock h1, #lock p, #lock input, #lock button {
-    animation: fadeIn 2s ease;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-    .chatbox {
+/* chat */
+.chatbox {
     width: 300px;
     text-align: left;
 }
@@ -122,13 +92,35 @@ video {
     max-width: 70%;
 }
 
-.left {
-    background: #222;
-}
-
+.left { background: #222; }
 .right {
     background: #0b93f6;
     margin-left: auto;
+}
+
+/* hearts */
+.heart {
+    position: fixed;
+    color: pink;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh); opacity: 1; }
+    100% { transform: translateY(-10vh); opacity: 0; }
+}
+
+/* shake */
+.shake {
+    animation: shake 0.5s;
+}
+
+@keyframes shake {
+    0% { transform: translate(2px, 2px); }
+    25% { transform: translate(-2px, -2px); }
+    50% { transform: translate(2px, -2px); }
+    75% { transform: translate(-2px, 2px); }
+    100% { transform: translate(0, 0); }
 }
 </style>
 </head>
@@ -137,16 +129,15 @@ video {
 
 <!-- PASSWORD -->
 <section id="lock" class="active">
-    <h1>Enter something only we know</h1>
+    <h1>This is not just a website</h1>
+    <p>It is something I made for you</p>
     <input type="password" id="pass">
-    <p style="margin-top:10px; opacity:0.7;">
-        Hint: Who is better for Akanksha over Yogesh???
-    </p>
+    <p style="opacity:0.7;">Hint: Who is better for Akanksha over Yogesh</p>
     <button onclick="check()">Enter</button>
 </section>
 
 <!-- MAIN -->
-<div id="main">
+<div id="main" style="display:none;">
 
 <section id="s1">
     <h1 id="typing"></h1>
@@ -154,82 +145,58 @@ video {
 </section>
 
 <section id="s2">
-    <p>
-        I do not think I say this enough, but you changed my life in a way I never expected.
-    </p>
-
-    <button onclick="reveal('m1')">Tap to reveal memory</button>
+    <p>You changed my life in a way I never expected.</p>
+    <button onclick="reveal('m1')">Tap to reveal</button>
     <img src="Ira3.jpg" id="m1" class="photo">
-
     <button onclick="next('s3')">Continue</button>
 </section>
 
 <section id="s3">
-    <p>
-        You became the person I go to without thinking.
-        The person I trust without explaining everything.
-    </p>
-
-    <button onclick="reveal('m2')">Tap to reveal memory</button>
+    <p>You became the person I go to without thinking.</p>
+    <button onclick="reveal('m2')">Tap to reveal</button>
     <img src="Ira1.jpg" id="m2" class="photo">
-
     <button onclick="next('s4')">Continue</button>
 </section>
 
 <section id="s4">
-    <p>
-        These moments meant more than I ever said.
-    </p>
-
+    <p>These moments meant more than I ever said.</p>
     <video controls>
         <source src="Ira Video.mp4" type="video/mp4">
     </video>
-
     <button onclick="next('s5')">Continue</button>
 </section>
 
 <section id="s5">
-    <p>
-        It is not just the big memories.
-        It is the random moments that somehow became everything.
-    </p>
-
-    <button onclick="reveal('m3')">Tap to reveal memory</button>
+    <p>It is not just the big memories, but everything in between.</p>
+    <button onclick="reveal('m3')">Tap to reveal</button>
     <img src="Ira2.jpg" id="m3" class="photo">
-
     <button onclick="next('s6')">Continue</button>
 </section>
 
 <section id="s6">
-    <p>
-        You are not just my best friend.
-        You are someone who stayed and made life better.
-    </p>
-
+    <p>You are someone who stayed and made life better.</p>
     <button onclick="reveal('m4')">Tap to reveal</button>
     <img src="Ira5.jpg" id="m4" class="photo">
+    <button onclick="next('chat')">Last</button>
+</section>
 
-    <button onclick="next('end')">Last</button>
-    <section id="chat">
+<!-- CHAT -->
+<section id="chat">
     <div class="chatbox">
         <p class="msg left">hey</p>
         <p class="msg right">what</p>
         <p class="msg left">nothing just wanted to talk</p>
-        <p class="msg right">aw why</p>
-        <p class="msg left">because you matter to me more than you think</p>
-        <p class="msg right">shut up </p>
+        <p class="msg right">why</p>
+        <p class="msg left">because you matter more than you think</p>
+        <p class="msg right">shut up 😭</p>
         <p class="msg left">never</p>
     </div>
-
-   <button onclick="next('chat')">Last</button>
-</section>
+    <button onclick="next('end')">Continue</button>
 </section>
 
+<!-- FINAL -->
 <section id="end">
-    <p>
-        If I had to choose again, I would still choose you.
-    </p>
-
+    <h1 id="finalText"></h1>
     <button onclick="reveal('m5')">Tap to reveal</button>
     <img src="Ira6.jpg" id="m5" class="photo">
 </section>
@@ -243,35 +210,84 @@ video {
 
 <script>
 
-<section id="lock" class="active" style="position:relative; overflow:hidden;">
+/* PASSWORD */
+function check() {
+    if (document.getElementById("pass").value === "Gauresh") {
+        document.getElementById("lock").style.display = "none";
+        document.getElementById("main").style.display = "block";
+        document.getElementById("s1").classList.add("active");
 
-    <!-- background image -->
-    <img src="bg2.jpg" style="
-        position:absolute;
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        opacity:0.3;
-        z-index:-1;
-    ">
+        let music = document.getElementById("music");
+        music.currentTime = 47;
+        music.play();
+    } else {
+        alert("Wrong password");
+    }
+}
 
-    <h1 style="font-size:2.5em;">
-        This is not just a website
-    </h1>
+/* NAVIGATION */
+function next(id) {
+    document.querySelectorAll("#main section").forEach(s => {
+        s.classList.remove("active");
+    });
 
-    <p style="opacity:0.8; margin-bottom:20px;">
-        It is something I made for you
-    </p>
+    document.getElementById(id).classList.add("active");
 
-    <input type="password" id="pass" placeholder="Enter something only we know">
+    if (id === "end") {
+        typeFinal();
+        document.body.classList.add("shake");
+        setTimeout(() => document.body.classList.remove("shake"), 500);
+    }
+}
 
-    <p style="margin-top:10px; opacity:0.7;">
-        Hint: Who is better for Akanksha over Yogesh
-    </p>
+/* TYPE START */
+const text = "Hey Ira";
+let i = 0;
+function typeEffect() {
+    if (i < text.length) {
+        document.getElementById("typing").innerHTML += text.charAt(i);
+        i++;
+        setTimeout(typeEffect, 80);
+    }
+}
+typeEffect();
 
-    <button onclick="check()">Enter</button>
+/* FINAL TEXT */
+const finalMessage = "If I had to choose again, I would still choose you.";
+function typeFinal() {
+    let i = 0;
+    const el = document.getElementById("finalText");
+    el.innerHTML = "";
 
-</section>
+    function typing() {
+        if (i < finalMessage.length) {
+            el.innerHTML += finalMessage.charAt(i);
+            i++;
+            setTimeout(typing, 80);
+        }
+    }
+    typing();
+}
+
+/* REVEAL */
+function reveal(id) {
+    document.getElementById(id).style.display = "block";
+}
+
+/* HEARTS */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerText = "♥";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = Math.random() * 20 + 10 + "px";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 400);
+
+</script>
 
 </body>
 </html>
