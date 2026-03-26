@@ -1,11 +1,10 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>For Ira</title>
 
 <!-- Google Font -->
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -15,9 +14,10 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Great Vibes', cursive;
     color: white;
     text-align: center;
+    background: url("bg1.jpg") center/cover no-repeat fixed;
 }
 
 /* sections */
@@ -41,15 +41,13 @@ section.active {
 
 /* TEXT */
 h1 {
-    font-size: 3em;
-    text-shadow: 0 0 15px rgba(255,255,255,0.4);
+    font-family: 'Great Vibes', cursive;
+    font-size: 3.5em;
 }
 
 p {
-    max-width: 600px;
+    font-family: Arial, sans-serif;
     font-size: 1.2em;
-    line-height: 1.8;
-    text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
 /* BUTTON */
