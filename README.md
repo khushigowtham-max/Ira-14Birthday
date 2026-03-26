@@ -6,17 +6,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
 
 <style>
-* {margin:0;padding:0;box-sizing:border-box;}
+*{margin:0;padding:0;box-sizing:border-box;}
 
-body {
-    font-family: 'Poppins', sans-serif;
+body{
+    font-family:'Poppins',sans-serif;
     color:white;
     text-align:center;
-    background: url("bg1.jpg") center/cover no-repeat fixed;
+    background:url("bg1.jpg") center/cover no-repeat fixed;
 }
 
 /* overlay */
-body::before {
+body::before{
     content:"";
     position:fixed;
     width:100%;
@@ -28,7 +28,7 @@ body::before {
 }
 
 /* sections */
-section {
+section{
     height:100vh;
     display:none;
     justify-content:center;
@@ -38,31 +38,22 @@ section {
     opacity:0;
     transition:1s;
 }
-
-section.active {
-    display:flex;
-    opacity:1;
-}
-
-#lock {
-    display:flex;
-    opacity:1;
-}
+section.active{display:flex;opacity:1;}
+#lock{display:flex;opacity:1;}
 
 /* text */
-h1 {
-    font-family:'Great Vibes', cursive;
+h1{
+    font-family:'Great Vibes',cursive;
     font-size:3.5em;
 }
-
-p {
+p{
     font-size:1.2em;
     max-width:600px;
     line-height:1.8;
 }
 
-/* buttons */
-button {
+/* button */
+button{
     margin-top:20px;
     padding:12px 25px;
     border-radius:25px;
@@ -73,47 +64,23 @@ button {
 }
 
 /* media */
-.photo {
+.photo{
     width:250px;
     border-radius:15px;
     margin-top:20px;
     display:none;
 }
-
-video {
+video{
     width:300px;
     border-radius:15px;
     margin-top:20px;
 }
 
 /* chat */
-.chatbox {width:300px;text-align:left;}
-.msg {padding:10px;margin:10px;border-radius:15px;max-width:70%;}
-.left {background:#222;}
-.right {background:#0b93f6;margin-left:auto;}
-
-/* black screen */
-#blackScreen {
-    position:fixed;
-    width:100%;
-    height:100%;
-    background:black;
-    top:0;
-    left:0;
-    opacity:0;
-    transition:2s;
-    z-index:10;
-}
-
-/* shake */
-@keyframes shake {
-    0%{transform:translate(2px,2px);}
-    25%{transform:translate(-2px,-2px);}
-    50%{transform:translate(2px,-2px);}
-    75%{transform:translate(-2px,2px);}
-    100%{transform:translate(0);}
-}
-.shake {animation:shake 0.5s;}
+.chatbox{width:300px;text-align:left;}
+.msg{padding:10px;margin:10px;border-radius:15px;max-width:70%;}
+.left{background:#222;}
+.right{background:#0b93f6;margin-left:auto;}
 </style>
 </head>
 
@@ -121,18 +88,19 @@ video {
 
 <!-- PASSWORD -->
 <section id="lock" class="active">
-    <h1>This is not just a website</h1>
-    <p>It is something I made for you</p>
-    <input type="password" id="pass">
-    <p style="opacity:0.7;">Hint: Who is better for Akanksha over Yogesh?</p>
-    <button onclick="check()">Enter</button>
+<h1>This is not just a website</h1>
+<p>It is something I made for you</p>
+<input type="password" id="pass">
+<p style="opacity:0.7;">Hint: Who is better for Akanksha over Yogesh</p>
+<button onclick="check()">Enter</button>
 </section>
 
+<!-- MAIN -->
 <div id="main" style="display:none;">
 
 <section id="s1">
-    <h1 id="typing"></h1>
-    <button onclick="next('s2')">keep going</button>
+<h1 id="typing"></h1>
+<button onclick="next('s2')">keep going</button>
 </section>
 
 <section id="s2">
@@ -172,7 +140,7 @@ video {
 </section>
 
 <!-- QUIZ -->
-<section id="Quiz">
+<section id="quiz">
 <h1>Wait</h1>
 <p>Guess your gift</p>
 <input type="text" id="guess">
@@ -194,7 +162,6 @@ video {
 
 <!-- FINAL -->
 <section id="end">
-<div id="blackScreen"></div>
 <h1 id="finalText"></h1>
 
 <button onclick="reveal('m5')">tap to reveal</button>
@@ -205,6 +172,7 @@ video {
 
 </div>
 
+<!-- MUSIC -->
 <audio id="music">
 <source src="London Thumakda .mp3" type="audio/mpeg">
 </audio>
@@ -260,20 +228,13 @@ document.getElementById("quizResult").innerHTML="nope try again";
 }
 }
 
-/* FINAL */
-const finalMessage="If I had to choose again... in every life... I would still choose you.";
+/* FINAL TEXT (WORKING FIXED) */
+const finalMessage="If I had to choose again, in every life, I would still choose you.";
 
 function typeFinal(){
-let black=document.getElementById("blackScreen");
 let el=document.getElementById("finalText");
-
-black.style.opacity=1;
-
-setTimeout(()=>{
-black.style.opacity=0;
-
-let i=0;
 el.innerHTML="";
+let i=0;
 
 function typing(){
 if(i<finalMessage.length){
@@ -282,13 +243,6 @@ i++;
 setTimeout(typing,70);
 }}
 typing();
-
-setTimeout(()=>{
-document.body.classList.add("shake");
-setTimeout(()=>document.body.classList.remove("shake"),500);
-},3000);
-
-},2000);
 }
 
 </script>
