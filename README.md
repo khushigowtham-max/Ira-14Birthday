@@ -110,6 +110,26 @@ video {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
 }
+    .chatbox {
+    width: 300px;
+    text-align: left;
+}
+
+.msg {
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+    max-width: 70%;
+}
+
+.left {
+    background: #222;
+}
+
+.right {
+    background: #0b93f6;
+    margin-left: auto;
+}
 </style>
 </head>
 
@@ -190,6 +210,19 @@ video {
     <img src="Ira5.jpg" id="m4" class="photo">
 
     <button onclick="next('end')">Last</button>
+    <section id="chat">
+    <div class="chatbox">
+        <p class="msg left">hey</p>
+        <p class="msg right">what</p>
+        <p class="msg left">nothing just wanted to talk</p>
+        <p class="msg right">aw why</p>
+        <p class="msg left">because you matter to me more than you think</p>
+        <p class="msg right">shut up </p>
+        <p class="msg left">never</p>
+    </div>
+
+   <button onclick="next('chat')">Last</button>
+</section>
 </section>
 
 <section id="end">
