@@ -172,7 +172,7 @@ video {
 </section>
 
 <!-- QUIZ -->
-<section id="quiz">
+<section id="Quiz">
 <h1>Wait</h1>
 <p>Guess your gift</p>
 <input type="text" id="guess">
