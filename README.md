@@ -12,9 +12,19 @@
 
 body {
     font-family: Arial, sans-serif;
-    background: black;
+    background: url("bg1.jpg") center/cover no-repeat fixed;
     color: white;
     text-align: center;
+}
+    body::before {
+    content: "";
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    z-index: -1;
 }
 
 /* sections */
