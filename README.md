@@ -1,7 +1,11 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>For Ira</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -11,11 +15,9 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background: black;
+    font-family: 'Poppins', sans-serif;
     color: white;
     text-align: center;
-    overflow: hidden;
 }
 
 /* sections */
@@ -29,6 +31,7 @@ section {
     opacity: 0;
     transition: 1s;
     position: relative;
+    overflow: hidden;
 }
 
 section.active {
@@ -36,23 +39,20 @@ section.active {
     opacity: 1;
 }
 
-#lock {
-    display: flex;
-    opacity: 1;
-}
-
-/* text */
+/* TEXT */
 h1 {
     font-size: 3em;
+    text-shadow: 0 0 15px rgba(255,255,255,0.4);
 }
 
 p {
     max-width: 600px;
-    font-size: 1.3em;
+    font-size: 1.2em;
     line-height: 1.8;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
 }
 
-/* button */
+/* BUTTON */
 button {
     margin-top: 20px;
     padding: 12px 25px;
@@ -61,9 +61,14 @@ button {
     background: white;
     color: black;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-/* images */
+button:hover {
+    transform: scale(1.1);
+}
+
+/* IMAGES */
 .photo {
     width: 250px;
     border-radius: 15px;
@@ -71,14 +76,14 @@ button {
     display: none;
 }
 
-/* video */
+/* VIDEO */
 video {
     width: 300px;
     border-radius: 15px;
     margin-top: 20px;
 }
 
-/* chat */
+/* CHAT */
 .chatbox {
     width: 300px;
     text-align: left;
@@ -97,7 +102,39 @@ video {
     margin-left: auto;
 }
 
-/* hearts */
+/* BACKGROUNDS */
+#s1 { background: url("bg1.jpg") center/cover no-repeat; }
+#s2 { background: url("bg2.jpg") center/cover no-repeat; }
+#s3 { background: url("bg3.jpg") center/cover no-repeat; }
+#s4 { background: black; }
+#s5 { background: url("bg1.jpg") center/cover no-repeat; }
+#s6 { background: url("bg2.jpg") center/cover no-repeat; }
+#chat { background: #111; }
+#end { background: black; }
+
+/* OVERLAY */
+section::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.6);
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* CINEMATIC ZOOM */
+@keyframes zoom {
+    from { background-size: 100%; }
+    to { background-size: 110%; }
+}
+
+section {
+    animation: zoom 12s infinite alternate;
+}
+
+/* HEARTS */
 .heart {
     position: fixed;
     color: pink;
@@ -109,7 +146,7 @@ video {
     100% { transform: translateY(-10vh); opacity: 0; }
 }
 
-/* shake */
+/* SHAKE */
 .shake {
     animation: shake 0.5s;
 }
@@ -131,7 +168,7 @@ video {
     <h1>This is not just a website</h1>
     <p>It is something I made for you</p>
     <input type="password" id="pass">
-    <p style="opacity:0.7;">Hint: Who is better for Akanksha over Yogesh??</p>
+    <p style="opacity:0.7;">Hint: Who is better for Akanksha over Yogesh</p>
     <button onclick="check()">Enter</button>
 </section>
 
@@ -196,8 +233,11 @@ video {
 <!-- FINAL -->
 <section id="end">
     <h1 id="finalText"></h1>
+
     <button onclick="reveal('m5')">Tap to reveal</button>
     <img src="Ira6.jpg" id="m5" class="photo">
+
+    <button onclick="location.reload()">Replay</button>
 </section>
 
 </div>
