@@ -92,6 +92,14 @@ video {
     0% { transform: translateY(100vh); opacity: 1; }
     100% { transform: translateY(-10vh); opacity: 0; }
 }
+    #lock h1, #lock p, #lock input, #lock button {
+    animation: fadeIn 2s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
 </style>
 </head>
 
@@ -167,18 +175,20 @@ video {
         You are not just my best friend.
         You are someone who stayed and made life better.
     </p>
-      <button onclick="reveal('s6')">Tap to reveal</button>
-    <img src="Ira5.jpg" id="m2" class="photo">
+
+    <button onclick="reveal('m4')">Tap to reveal</button>
+    <img src="Ira5.jpg" id="m4" class="photo">
+
     <button onclick="next('end')">Last</button>
 </section>
 
 <section id="end">
     <p>
         If I had to choose again, I would still choose you.
-         <button onclick="reveal('m8')">Tap to reveal </button>
-    <img src="Ira6.jpg" id="m3" class="photo">
-
     </p>
+
+    <button onclick="reveal('m5')">Tap to reveal</button>
+    <img src="Ira6.jpg" id="m5" class="photo">
 </section>
 
 </div>
@@ -190,64 +200,35 @@ video {
 
 <script>
 
-/* PASSWORD */
-function check() {
-    if (document.getElementById("pass").value === "Gauresh") {
+<section id="lock" class="active" style="position:relative; overflow:hidden;">
 
-        document.getElementById("lock").style.display = "none";
-        document.getElementById("main").style.display = "block";
-        document.getElementById("s1").classList.add("active");
+    <!-- background image -->
+    <img src="bg2.jpg" style="
+        position:absolute;
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        opacity:0.3;
+        z-index:-1;
+    ">
 
-       let music = document.getElementById("music");
-music.currentTime = 47; 
-music.play();
+    <h1 style="font-size:2.5em;">
+        This is not just a website
+    </h1>
 
-    } else {
-        alert("Wrong password");
-    }
-}
+    <p style="opacity:0.8; margin-bottom:20px;">
+        It is something I made for you
+    </p>
 
-/* NAVIGATION */
-function next(id) {
-    document.querySelectorAll("#main section").forEach(s => {
-        s.classList.remove("active");
-    });
+    <input type="password" id="pass" placeholder="Enter something only we know">
 
-    document.getElementById(id).classList.add("active");
-}
+    <p style="margin-top:10px; opacity:0.7;">
+        Hint: Who is better for Akanksha over Yogesh
+    </p>
 
-/* TYPE EFFECT */
-const text = "Hey Ira";
-let i = 0;
+    <button onclick="check()">Enter</button>
 
-function typeEffect() {
-    if (i < text.length) {
-        document.getElementById("typing").innerHTML += text.charAt(i);
-        i++;
-        setTimeout(typeEffect, 80);
-    }
-}
-typeEffect();
-
-/* REVEAL */
-function reveal(id) {
-    document.getElementById(id).style.display = "block";
-}
-
-/* HEARTS */
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.classList.add("heart");
-    heart.innerText = "♥";
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = Math.random() * 20 + 10 + "px";
-    document.body.appendChild(heart);
-
-    setTimeout(() => heart.remove(), 6000);
-}
-setInterval(createHeart, 400);
-
-</script>
+</section>
 
 </body>
 </html>
