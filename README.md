@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -132,7 +131,7 @@ video {
     <h1>This is not just a website</h1>
     <p>It is something I made for you</p>
     <input type="password" id="pass">
-    <p style="opacity:0.7;">Hint: Who is better for Akanksha over Yogesh</p>
+    <p style="opacity:0.7;">Hint: Who is better for Akanksha over Yogesh??</p>
     <button onclick="check()">Enter</button>
 </section>
 
