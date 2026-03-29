@@ -166,7 +166,7 @@ video {
 
     <input type="password" id="pass">
     <p style="margin-top:10px; opacity:0.7;">
-        Hint: Who is better for Akanksha over Yogesh??
+        Hint: Who is better for Akanksha over Yogesh???
     </p>
 
     <button onclick="check()">Enter</button>
@@ -212,7 +212,7 @@ video {
 <section id="s6">
     <p>You are not just my best friend. You are my safe place.</p>
     <button onclick="reveal('m4')">Tap to reveal</button>
-    <img src="Ira5.jpg" id="m4" class="photo">
+    <img src="Ira 7.jpg" id="m4" class="photo">
     <button onclick="next('end')">Last</button>
 </section>
 
@@ -221,7 +221,7 @@ video {
     <h1 id="finalText"></h1>
 
     <button onclick="reveal('m5')">Tap to reveal</button>
-    <img src="Ira6.jpg" id="m5" class="photo">
+    <img src="Ira4.jpg" id="m5" class="photo">
 
     <button onclick="location.reload()">Replay</button>
 </section>
