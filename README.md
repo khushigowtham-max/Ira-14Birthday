@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -8,26 +7,39 @@
 <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400&display=swap" rel="stylesheet">
 
 <style>
+
+/* FULL SCREEN FIX */
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+/* RESET */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* BACKGROUND */
 body {
     font-family: 'Poppins', sans-serif;
     color: white;
     text-align: center;
-    overflow: hidden;
 }
 
-/* ONE BACKGROUND FOR ALL */
+/* IMAGE BACKGROUND */
 body::before {
     content: "";
     position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background: url("bg1.jpg") center/cover no-repeat;
+    background: url("bg3.jpg") no-repeat center center;
+    background-size: cover;
+    filter: blur(2px);
     z-index: -2;
 }
 
@@ -43,6 +55,7 @@ body::after {
 
 /* SECTIONS */
 section {
+    width: 100%;
     height: 100vh;
     display: none;
     justify-content: center;
@@ -68,12 +81,14 @@ h1 {
     font-family: 'Great Vibes', cursive;
     font-size: 3.5em;
     margin-bottom: 20px;
+    text-shadow: 0 0 15px rgba(255,255,255,0.6);
 }
 
 p {
     max-width: 600px;
     font-size: 1.2em;
     line-height: 1.8;
+    opacity: 0.9;
 }
 
 /* BUTTON */
@@ -82,7 +97,7 @@ button {
     padding: 12px 25px;
     border-radius: 25px;
     border: none;
-    background: white;
+    background: rgba(255,255,255,0.9);
     color: black;
     cursor: pointer;
     transition: 0.3s;
@@ -92,13 +107,21 @@ button:hover {
     transform: scale(1.1);
 }
 
+/* INPUT */
+input {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+}
+
 /* IMAGES */
 .photo {
     width: 260px;
     border-radius: 15px;
     margin-top: 20px;
     display: none;
-    box-shadow: 0 0 20px rgba(255,255,255,0.2);
+    box-shadow: 0 0 25px rgba(255,255,255,0.3);
 }
 
 /* VIDEO */
@@ -108,14 +131,15 @@ video {
     margin-top: 20px;
 }
 
-/* FINAL CINEMATIC */
+/* FINAL SCENE */
 #end {
-    background: rgba(0,0,0,0.85);
+    background: rgba(0,0,0,0.8);
 }
 
 #finalText {
     font-size: 2.2em;
     max-width: 700px;
+    text-shadow: 0 0 20px rgba(255,255,255,0.7);
 }
 
 /* HEARTS */
@@ -129,6 +153,7 @@ video {
     0% { transform: translateY(100vh); opacity: 1; }
     100% { transform: translateY(-10vh); opacity: 0; }
 }
+
 </style>
 </head>
 
@@ -141,7 +166,7 @@ video {
 
     <input type="password" id="pass">
     <p style="margin-top:10px; opacity:0.7;">
-        Hint: Who is better for Akanksha over Yogesh?
+        Hint: Who is better for Akanksha over Yogesh??
     </p>
 
     <button onclick="check()">Enter</button>
@@ -187,16 +212,16 @@ video {
 <section id="s6">
     <p>You are not just my best friend. You are my safe place.</p>
     <button onclick="reveal('m4')">Tap to reveal</button>
-    <img src="Ira 7.jpg" id="m4" class="photo">
+    <img src="Ira5.jpg" id="m4" class="photo">
     <button onclick="next('end')">Last</button>
 </section>
 
-<!-- FINAL SCENE -->
+<!-- FINAL -->
 <section id="end">
     <h1 id="finalText"></h1>
 
     <button onclick="reveal('m5')">Tap to reveal</button>
-    <img src="Ira4.jpg" id="m5" class="photo">
+    <img src="Ira6.jpg" id="m5" class="photo">
 
     <button onclick="location.reload()">Replay</button>
 </section>
@@ -213,13 +238,15 @@ video {
 /* PASSWORD */
 function check() {
     if (document.getElementById("pass").value === "Gauresh") {
+
         document.getElementById("lock").style.display = "none";
         document.getElementById("main").style.display = "block";
         document.getElementById("s1").classList.add("active");
 
         let music = document.getElementById("music");
-        music.currentTime = 47; 
+        music.currentTime = 47;
         music.play();
+
     } else {
         alert("Wrong password");
     }
@@ -251,7 +278,7 @@ function typeEffect() {
 }
 typeEffect();
 
-/* FINAL TYPE (CINEMATIC) */
+/* FINAL TYPE */
 const finalMsg = "If I had to choose again, I would still choose you.";
 
 let j = 0;
