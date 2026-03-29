@@ -27,7 +27,7 @@ body::before {
     position: fixed;
     width: 100%;
     height: 100%;
-    background: url("bg3.jpg") center/cover no-repeat;
+    background: url("bg1.jpg") center/cover no-repeat;
     z-index: -2;
 }
 
