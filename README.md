@@ -212,7 +212,7 @@ video {
 <section id="s6">
     <p>You are not just my best friend. You are my safe place.</p>
     <button onclick="reveal('m4')">Tap to reveal</button>
-    <img src="Ira 7.jpg" id="m4" class="photo">
+    <img src="Ira 7.jpeg" id="m4" class="photo">
     <button onclick="next('end')">Last</button>
 </section>
 
