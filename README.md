@@ -37,7 +37,7 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background: url("bg3.jpg") no-repeat center center;
+    background: url("bg1.jpg") no-repeat center center;
     background-size: cover;
     filter: blur(2px);
     z-index: -2;
