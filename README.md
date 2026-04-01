@@ -110,7 +110,7 @@ video {
     <input type="password" id="pass">
 
     <p style="margin-top:10px; opacity:0.7;">
-        Hint: Who is better for Akanksha over Yogesh??
+        Hint: Who is better for Akanksha over Yogesh????
     </p>
 
     <button onclick="check()">Enter</button>
