@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,12 +13,12 @@
     box-sizing: border-box;
 }
 
-    body {
+body {
     font-family: 'Great Vibes', cursive;
     color: white;
     text-align: center;
     overflow-y: auto;
-        background: url("bg1.jpg") center/cover no-repeat fixed;
+    background: url("bg1.jpg") center/cover no-repeat fixed;
 }
 
 /* sections */
@@ -39,14 +40,8 @@ section.active {
 }
 
 /* text */
-h1 {
-    font-size: 3em;
-}
-
-p {
-    max-width: 600px;
-    font-size: 1.4em;
-}
+h1 { font-size: 3em; }
+p { max-width: 600px; font-size: 1.4em; }
 
 /* button */
 button {
@@ -59,16 +54,22 @@ button {
     cursor: pointer;
 }
 
-button:hover {
-    transform: scale(1.1);
-}
-
 /* images */
 .photo {
     width: 250px;
     border-radius: 15px;
     margin-top: 20px;
     display: none;
+    max-height: 70vh;
+}
+
+/* blur effect */
+.blur {
+    filter: blur(10px);
+    transition: 0.6s;
+}
+.blur.show {
+    filter: blur(0);
 }
 
 /* video */
@@ -81,16 +82,15 @@ video {
 /* confetti */
 .confetti {
     position: fixed;
-    width: 10px;
-    height: 10px;
-    background: gold;
+    width: 8px;
+    height: 8px;
     top: -10px;
-    animation: fall 3s linear infinite;
+    animation: fall linear forwards;
 }
 
 @keyframes fall {
     to {
-        transform: translateY(100vh) rotate(360deg);
+        transform: translateY(100vh) rotate(720deg);
     }
 }
 </style>
@@ -102,7 +102,6 @@ video {
 <section id="lock" class="active">
     <h1>Enter something only we know</h1>
     <input type="password" id="pass">
-    <p>Hint: Who is better for Akanksha????</p>
     <button onclick="check()">Enter</button>
 </section>
 
@@ -117,14 +116,14 @@ video {
 <section id="s2">
     <p>You changed my life in a way I never expected.</p>
     <button onclick="reveal('m1')">Tap to reveal</button>
-    <img src="Ira3.jpg" id="m1" class="photo">
+    <img src="Ira3.jpg" id="m1" class="photo blur" onclick="this.classList.toggle('show')">
     <button onclick="next('s3')">Continue</button>
 </section>
 
 <section id="s3">
     <p>You became the person I go to without thinking.</p>
     <button onclick="reveal('m2')">Tap to reveal</button>
-    <img src="Ira1.jpg" id="m2" class="photo">
+    <img src="Ira1.jpg" id="m2" class="photo blur" onclick="this.classList.toggle('show')">
     <button onclick="next('s4')">Continue</button>
 </section>
 
@@ -139,7 +138,7 @@ video {
 <section id="s5">
     <p>It is the small moments that became everything.</p>
     <button onclick="reveal('m3')">Tap to reveal</button>
-    <img src="Ira2.jpg" id="m3" class="photo">
+    <img src="Ira2.jpg" id="m3" class="photo blur" onclick="this.classList.toggle('show')">
     <button onclick="next('s6')">Continue</button>
 </section>
 
@@ -165,15 +164,27 @@ video {
 
 <!-- FINAL -->
 <section id="end">
-    <h1 id="countdown"></h1>
+    <h1 id="fakeEnd">The End</h1>
 
-    <h1 id="finalText" style="display:none;">
-        It was never just a gift.<br><br>
-        It is something I made for you.
+    <h1 id="realEnd" style="display:none;">
+        wait… one more thing
     </h1>
 
-    <button onclick="reveal('m5')" id="finalBtn" style="display:none;">Tap to reveal</button>
-    <img src="Ira6.jpg" id="m5" class="photo">
+    <h2 id="giftText" style="display:none;">
+        now check behind you
+    </h2>
+
+    <button onclick="reveal('finalPic')" id="finalBtn" style="display:none;">
+        Tap to reveal
+    </button>
+
+    <img src="Ira6.jpg" id="finalPic" class="photo">
+    
+    <br><br>
+
+    <button onclick="document.getElementById('voice').play()" id="voiceBtn" style="display:none;">
+        Play this
+    </button>
 
 </section>
 
@@ -182,6 +193,11 @@ video {
 <!-- MUSIC -->
 <audio id="music">
     <source src="London Thumakda .mp3" type="audio/mpeg">
+</audio>
+
+<!-- VOICE -->
+<audio id="voice">
+    <source src="voice.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -206,9 +222,10 @@ function next(id) {
     document.querySelectorAll("#main section").forEach(s => {
         s.classList.remove("active");
     });
+
     document.getElementById(id).classList.add("active");
 
-    if (id === "end") startCountdown();
+    if (id === "end") startEnding();
 }
 
 /* TYPE */
@@ -240,34 +257,35 @@ function checkGift(ans) {
     }
 }
 
-/* COUNTDOWN */
-function startCountdown() {
-    let count = 3;
-    let el = document.getElementById("countdown");
+/* ENDING */
+function startEnding() {
+    setTimeout(() => {
+        document.getElementById("fakeEnd").style.display = "none";
+        document.getElementById("realEnd").style.display = "block";
 
-    let interval = setInterval(() => {
-        el.innerHTML = count;
-        count--;
-
-        if (count < 0) {
-            clearInterval(interval);
-            el.style.display = "none";
-            document.getElementById("finalText").style.display = "block";
+        setTimeout(() => {
+            document.getElementById("giftText").style.display = "block";
             document.getElementById("finalBtn").style.display = "block";
+            document.getElementById("voiceBtn").style.display = "block";
             startConfetti();
-        }
-    }, 1000);
+        }, 1500);
+
+    }, 2000);
 }
 
 /* CONFETTI */
 function startConfetti() {
-    for (let i = 0; i < 80; i++) {
+    for (let i = 0; i < 100; i++) {
         let c = document.createElement("div");
         c.classList.add("confetti");
+
         c.style.left = Math.random() * 100 + "vw";
+        c.style.backgroundColor = `hsl(${Math.random()*360},100%,50%)`;
+        c.style.animationDuration = (Math.random()*2 + 2) + "s";
+
         document.body.appendChild(c);
 
-        setTimeout(() => c.remove(), 3000);
+        setTimeout(() => c.remove(), 4000);
     }
 }
 
