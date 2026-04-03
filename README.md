@@ -149,7 +149,7 @@ video {
 <section id="s5">
     <p>It is the small moments that became everything.</p>
     <button onclick="reveal('m3')">Tap to reveal</button>
-    <img src="Ira 7.jpg" id="m3" class="photo">
+    <img src="Ira4.jpg" id="m3" class="photo">
     <button onclick="next('s6')">Continue</button>
 </section>
 
