@@ -156,7 +156,7 @@ video {
 <section id="s6">
     <p>You are not just my best friend. You are my safe place.</p>
     <button onclick="reveal('m4')">Tap to reveal</button>
-    <img src="Ira7.jpeg" id="m4" class="photo">
+<img src="Ira7.jpg" id="m4" class="photo" style="transform: rotate(180deg); transition: 0.5s;">
     <button onclick="next('quiz')">Last</button>
 </section>
 
