@@ -12,12 +12,12 @@
     box-sizing: border-box;
 }
 
-body {
+    body {
     font-family: 'Great Vibes', cursive;
     color: white;
     text-align: center;
-    overflow: hidden;
-    background: url("bg1.jpg") center/cover no-repeat fixed;
+    overflow-y: auto;
+        background: url("bg1.jpg") center/cover no-repeat fixed;
 }
 
 /* sections */
