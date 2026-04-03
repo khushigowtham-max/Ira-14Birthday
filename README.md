@@ -165,10 +165,10 @@ video {
     <h1>One last thing...</h1>
     <p>Guess what I got you</p>
 
-    <button onclick="checkGift('chocolate')">Chocolate</button>
-    <button onclick="checkGift('bracelet')">Bracelet</button>
-    <button onclick="checkGift('flowers')">Flowers</button>
-    <button onclick="checkGift('handmade')">Handmade gift</button>
+    <button onclick="checkGift('Makeup')">Chocolate</button>
+    <button onclick="checkGift('Bracelet')">Bracelet</button>
+    <button onclick="checkGift('Flowers')">Flowers</button>
+    <button onclick="checkGift('Handmade')">Handmade gift</button>
 
     <p id="quizResult"></p>
 </section>
