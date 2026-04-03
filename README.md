@@ -63,14 +63,6 @@ button {
     max-height: 70vh;
 }
 
-/* blur effect */
-.blur {
-    filter: blur(10px);
-    transition: 0.6s;
-}
-.blur.show {
-    filter: blur(0);
-}
 
 /* video */
 video {
