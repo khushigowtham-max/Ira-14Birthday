@@ -102,7 +102,7 @@ video {
 <section id="lock" class="active">
     <h1>Enter something only we know</h1>
     <input type="password" id="pass">
-    <p>Hint: Who is better for Akanksha??</p>
+    <p>Hint: Who is better for Akanksha????</p>
     <button onclick="check()">Enter</button>
 </section>
 
